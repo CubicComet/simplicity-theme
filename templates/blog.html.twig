@@ -1,0 +1,36 @@
+{% embed 'partials/base.html.twig' %}
+
+	{% set collection = page.collection() %}
+
+	{% block content %}
+{#
+		{% set blog_image = page.media.images|first.grayscale().contrast(0).brightness(10).colorize(67,5,75) %}
+
+		{% if blog_image %}
+		<div class="flush-top blog-header blog-header-image" style="background-image: url({{ blog_image.url }});">
+		{% else %}
+		<div class="blog-header">
+	{% endif %}#}
+		<div class="blog-title">
+			{{ page.content }}
+		</div>
+
+
+		<div class="content-wrapper blog-content-list">
+			<div id="listing" class="block">
+				{% for child in collection %}
+			        {% include 'partials/blog_item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+			    {% endfor %}
+
+                {% if config.plugins.pagination.enabled and collection.params.pagination %}
+                    {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+                {% endif %}
+
+			</div>
+			<div id="sidebar" class="block">
+				{% include 'partials/sidebar.html.twig' with {'blog':page} %}
+			</div>
+		</div>
+	{% endblock %}
+
+{% endembed %}

@@ -1,0 +1,10 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block body %}
+    <section id="body" class="wrapper padding numbered">
+        {% block content %}
+            <h1>{{ page.title }}</h1>
+            {{ page.content }}
+        {% endblock %}
+    </section>
+{% endblock %}

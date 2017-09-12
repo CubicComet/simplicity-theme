@@ -1,0 +1,58 @@
+@mixin drop-shadow {
+    box-shadow: 0px 0px 0.75rem #666666;
+}
+
+#body {
+    background-color: $content-bg-color;
+    margin-top: $leading-margin;
+    margin-bottom: $leading-margin;
+    @include drop-shadow;
+    border-radius: 10px;
+
+    &.padding {
+        padding: 1rem;
+    }
+}
+
+
+
+
+.header {
+    background-color: $primary-color;
+    color: $heading-color;
+    @include drop-shadow;
+
+    a {
+        color: white;
+        vertical-align: middle;
+    }
+
+    .logo {
+        font-size: $logo-font-size;
+        text-transform: uppercase;
+        margin-right: 0.5rem;
+    }
+
+    .padding {
+        padding: 1rem 0;
+    }
+}
+
+
+.footer {
+    background-color: #ddd;
+    color: #333; //#eee;lighten($greyscale-color, 50);
+    @include drop-shadow;
+    border-radius: 10px;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+
+    .padding {
+        padding: 1rem;
+    }
+
+    p {
+        margin: 0 auto;
+        padding: 10px;
+    }
+}

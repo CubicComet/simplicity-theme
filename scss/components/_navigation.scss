@@ -1,0 +1,97 @@
+/* Menu Settings */
+.main-nav {
+    margin: 5px 0;
+}
+.main-nav ul {
+    text-align: right; //align the nav-bar to the right
+    letter-spacing: -1em;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav ul li {
+    display: inline-block;
+    letter-spacing: normal;
+}
+
+.main-nav ul li a {
+    position: relative;
+    display: block;
+    line-height: 40px;
+    color: #fff;
+    padding: 0 15px;
+    white-space: nowrap;
+}
+
+.main-nav > ul > li > a {
+    border-radius: 2px;
+}
+
+/*Active dropdown nav item */
+.main-nav ul li:hover > a {
+    background-color: $secondary-color;
+}
+
+/* Selected Dropdown nav item */
+.main-nav ul li.selected > a {
+    background-color: #fff;
+    color: $primary-color;
+}
+
+/* Dropdown CSS */
+.main-nav ul li {position: relative;}
+
+.main-nav ul li ul {
+    position: absolute;
+    background-color: lighten($secondary-color, 25);
+    min-width: 100%;
+    text-align: left;
+    z-index: 999;
+    right: 0;
+
+    display: none;
+
+    border-top: 2px solid black;
+
+    li:hover {
+        background-color: $secondary-color;
+    }
+
+}
+
+.main-nav ul li.selected li.selected, .main-nav ul li.selected li.selected > a {
+    background-color: lighten($secondary-color, 50);
+    color: $secondary-color;
+}
+
+.main-nav ul li ul li {
+    display: block;
+}
+
+/* Dropdown CSS */
+.main-nav ul li ul ul {
+    left: 100%;
+    top: 0;
+}
+
+/* Active on Hover */
+.main-nav li:hover > ul {
+    display: block;
+}
+
+/* Child Indicator */
+.main-nav .has-children > a {
+    padding-right: 30px;
+}
+.main-nav .has-children > a:after {
+    font-family: FontAwesome;
+    content: '\f107';
+    position: absolute;
+    display: inline-block;
+    right: 8px;
+    top: 0;
+}
+
+.main-nav .has-children .has-children > a:after {
+    content: '\f105';
+}

@@ -1,0 +1,138 @@
+// Body Base
+body {
+    color: $body-color;
+    font-size: $core-font-size;
+    font-family: $body-font;
+    line-height: $core-line-height;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+    color: $heading-color;
+    font-family: $heading-font;
+    margin: $leading-margin / 2 0 $leading-margin 0;
+    text-rendering: optimizeLegibility;
+}
+
+h1 {
+	font-size: $h1-font-size;
+}
+
+h2 {
+	font-size: $h2-font-size;
+}
+
+h3 {
+	font-size: $h3-font-size;
+}
+
+h4 {
+	font-size: $h4-font-size;
+}
+
+h5 {
+	font-size: $h5-font-size;
+}
+
+h6 {
+	font-size: $h6-font-size;
+}
+
+// Links
+a {
+    color: lighten($primary-color, 10);
+    text-decoration: none;
+
+    &:hover {
+        color: darken($primary-color, 10);
+    }
+}
+
+// Paragraph
+p {
+	margin: $leading-margin 0;
+}
+
+// Lists
+ul, ol {
+	margin-top: $leading-margin;
+	margin-bottom: $leading-margin;
+	ul, ol {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+// Blockquote
+blockquote {
+	margin: $leading-margin 0;
+	padding-left: $leading-margin / 2;
+}
+
+cite {
+	display: block;
+	font-size: $core-font-size - 0.125;
+	&:before {
+      content: "\2014 \0020";
+    }
+}
+
+// Inline and Code
+code {
+    vertical-align: bottom;
+    font-family: $mono-font;
+    font-size: 1em;
+    background-color: lighten($greyscale-color, 50);
+}
+
+pre {
+    margin: $leading-margin 1rem;
+    padding: $content-padding;
+    font-family: $mono-font;
+    overflow-x: auto;
+
+    code {
+        font-size: 0.8rem;
+        background: none;
+    }
+}
+
+
+
+
+@mixin bi-gradient-background($dir, $col1, $col2) {
+    background-image: -webkit-linear-gradient($dir, $col1, $col2, $col1);
+    background-image: -moz-linear-gradient($dir, $col1, $col2, $col1);
+    background-image: -ms-linear-gradient($dir, $col1, $col2, $col1);
+    background-image: -o-linear-gradient($dir, $col1, $col2, $col1);
+    background-image: linear-gradient($dir, $col1, $col2, $col1);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    @include bi-gradient-background(left, $transparent, $primary-color);
+    margin: $leading-margin 10%;
+}
+
+
+// section numbering
+// From http://philarcher.org/diary/2013/headingnumbers/
+section.numbered {
+    counter-reset: h2;
+    h2 {counter-reset: h3}
+    h3 {counter-reset: h4}
+    h4 {counter-reset: h5}
+    h5 {counter-reset: h6}
+    h2:before {counter-increment: h2; content: counter(h2) ". "}
+    h3:before {counter-increment: h3; content: counter(h2) "." counter(h3) ". "}
+    h4:before {counter-increment: h4; content: counter(h2) "." counter(h3) "." counter(h4) ". "}
+    h5:before {counter-increment: h5; content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". "}
+    h6:before {counter-increment: h6; content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". "}
+
+    h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before, h6.nocount:before { content: ""; counter-increment: none }
+
+    h2 {
+        border-top: 1px solid $greyscale-color;
+    }
+}

@@ -1,0 +1,33 @@
+@mixin notice-colors($col) {
+    border-color: $col;
+    background-color: lighten($col, 42);
+    color: darken($col, 20);
+}
+
+.notices {
+    border-left: 0.75rem solid;
+    padding: 0.75rem 0.75rem 0.75rem 1.5rem;
+    margin: $leading-margin;
+    border-radius: 0.5rem;
+
+    &.level1 {
+        @include notice-colors($primary-color);
+    }
+    &.level2 {
+        @include notice-colors($secondary-color);
+    }
+    &.level3 {
+        @include notice-colors($tertiary-color);
+    }
+    &.level4 {
+        @include notice-colors($greyscale-color);
+    }
+
+    p {
+        margin: 0rem;
+    }
+
+    p + p {
+        margin-top: 1rem;
+    }
+}

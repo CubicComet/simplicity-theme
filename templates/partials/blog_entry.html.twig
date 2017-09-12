@@ -1,0 +1,54 @@
+<div class="list-item h-entry">
+
+    {% set header_image = page.header.header_image|defined(true) %}
+    {% set header_image_width  = page.header.header_image_width|defined(900) %}
+    {% set header_image_height = page.header.header_image_height|defined(300) %}
+    {% set header_image_file = page.header.header_image_file %}
+
+    <div class="meta">
+        <span class="list-blog-date">
+            <time class="dt-published" datetime="{{ page.date|date("c") }}">
+                <span><i class="fa fa-clock-o" aria-hidden="true"></i> {{ page.date|date("d") }} {{ page.date|date("M") }}</span>
+            </time>
+        </span>
+
+        {% if page.taxonomy.tag %}
+        <div class="tags">
+            <i class="fa fa-tags" aria-hidden="true"></i> {% for tag in page.taxonomy.tag %}
+            <a href="{{ blog.url|rtrim('/') }}/tag{{ config.system.param_sep }}{{ tag }}" class="p-category">{{ tag }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="blog-header">
+        <h1 class="blog-heading">{{ page.title }}</h1>
+    </div>
+
+    <div class="list-blog-padding">
+
+        <div class="e-content">
+            {{ page.content }}
+        </div>
+
+        {% if config.plugins.comments.enabled %}
+            {% include 'partials/comments.html.twig' %}
+        {% endif %}
+
+
+        <div class="prev-next">
+            {% if not page.isFirst %}
+                <div class="next">
+                    <a class="button" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> {{ 'BLOG.ITEM.NEXT_POST'|t }}</a>
+                </div>
+            {% endif %}
+
+            {% if not page.isLast %}
+                <div class="prev">
+                    <a class="button" href="{{ page.prevSibling.url }}">{{ 'BLOG.ITEM.PREV_POST'|t }} <i class="fa fa-chevron-right"></i></a>
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+</div>

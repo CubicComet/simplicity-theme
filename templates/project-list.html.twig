@@ -1,0 +1,18 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    {{ page.content }}
+
+    {% if not page.header.project_summary %}
+        {% for p in page.children if p.published %}
+        <hr />
+        <h2 class='project-summary'><a href='{{p.url}}'>{{p.title}}</a></h2>
+        {% endfor %}
+    {% else %}
+        {% for p in page.children if p.published %}
+        <hr />
+        <h2 class='project-summary'><a href='{{p.url}}'>{{p.title}}</a></h2>
+        <p class="project-summary">{{ p.summary }}</p>	
+        {% endfor %}
+    {% endif %}
+{% endblock %}

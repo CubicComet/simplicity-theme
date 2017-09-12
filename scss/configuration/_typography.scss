@@ -1,0 +1,25 @@
+// Base Sizes
+$core-font-size:				16px !default;
+$core-line-height:				1.25 !default;
+
+// Heading Sizes
+$h1-font-size:					$core-font-size * 3 !default;
+$h2-font-size:					$core-font-size * 2 !default;
+$h3-font-size:					$core-font-size * 1.6 !default;
+$h4-font-size:					$core-font-size * 1.4 !default;
+$h5-font-size:					$core-font-size * 1.2 !default;
+$h6-font-size:					$core-font-size !default;
+
+$logo-font-size:                40px !default;
+
+
+// Spacing
+$leading-margin:				$core-line-height * $core-font-size !default;
+
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto|Roboto+Mono');
+
+$body-font: 'Roboto', sans-serif;
+$heading-font: "Roboto Slab", serif;
+$mono-font: 'Roboto Mono', monospace;

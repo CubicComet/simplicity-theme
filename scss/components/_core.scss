@@ -1,0 +1,70 @@
+/* Core Stuff */
+html { // Root font size
+    font-size: 20px;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $page-bg-color;
+    margin: 0;
+}
+
+
+pre {
+    background: $code-bg-color;
+    color: $code-color;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+blockquote {
+    border-left: 10px solid #eee;
+    margin: 0;
+    padding: 0 2rem;
+}
+
+/* Utility Classes */
+.wrapper {
+    margin: 0 1rem;
+}
+
+@media screen and (min-width: 1220px) {
+    .wrapper {
+        margin: 0 auto;
+        width: 1200px;
+    }
+}
+
+.padding {
+    padding: 3rem 1rem;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-justify {
+    text-align: justify;
+}
